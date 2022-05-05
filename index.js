@@ -5,6 +5,27 @@ mongoose.connect("mongodb://localhost:27017/mongoLearn",{useNewUrlParser: true, 
 
 const Article = mongoose.model("Article", articleModel);
 
-const artigo = new Article({title: "Primeiro Artigo", author: "Jose Marcio", body: "Meu Primeiro Artigo"});
 
-artigo.save();
+Article.find({}).then(articles => {
+    console.log(articles);
+}).catch(err => {
+    console.log(err);
+});
+
+
+/* Cadastro
+const artigo = new Article({title: "Primeiro Artigo",
+    author: "Jose Marcio", 
+    body: "React do Zero",
+    special: true,
+    resume: {
+        content: "Conteúdo do resumo",
+        author: "Autor"
+    }
+});
+
+artigo.save().then(() => {
+    console.log("Artigo Salvo!")
+}).catch(err=> {
+    console.log(err);
+})*/
